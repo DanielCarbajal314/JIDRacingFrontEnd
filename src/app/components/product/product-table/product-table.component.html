@@ -1,0 +1,31 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center" class="top-space">
+    <mat-form-field fxLayout="row" class="top-space">
+        <mat-label>Buscar Producto</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+    </mat-form-field>
+    <table mat-table [dataSource]="productDataSource" fxFlex="90%" class="top-space">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>  
+        <ng-container matColumnDef="model">
+            <th mat-header-cell *matHeaderCellDef> Modelo </th>
+            <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+        </ng-container>  
+        <ng-container matColumnDef="brand">
+            <th mat-header-cell *matHeaderCellDef> Marca </th>
+            <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+        </ng-container>        
+        <ng-container matColumnDef="technicalDescription">
+            <th mat-header-cell *matHeaderCellDef> Descripcion Tecnica </th>
+            <td mat-cell *matCellDef="let element"> {{element.technicalDescription}} </td>
+        </ng-container> 
+        <ng-container matColumnDef="aditionalDescription">
+            <th mat-header-cell *matHeaderCellDef> Descripcion Adicional </th>
+            <td mat-cell *matCellDef="let element"> {{element.aditionalDescription}} </td>
+        </ng-container> 
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="update(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons fxFlex="90%"></mat-paginator>
+</div>

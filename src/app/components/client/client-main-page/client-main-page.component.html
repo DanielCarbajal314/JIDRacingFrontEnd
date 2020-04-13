@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Clientes</mat-card-title>
+      <mat-card-subtitle>Gestione los datos de sus clientes</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <button mat-raised-button color="primary" (click)="addClient()">
+                    <mat-icon>note_add</mat-icon>
+                    Nuevo Cliente
+                </button>
+            </div>
+            <div fxLayout='column'>
+                <div fxFlex="90%">
+                    <app-client-table></app-client-table>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+  </mat-card>
+
