@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { QuoteTableComponent } from '../quote-table/quote-table.component';
+import { QuoteFormService } from '../quote-form/service/quote-form.service';
 
 @Component({
   selector: 'app-quote-main-page',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote-main-page.component.scss']
 })
 export class QuoteMainPageComponent implements OnInit {
+  @ViewChild(QuoteTableComponent, {static: true}) productTableComponent: QuoteTableComponent;
+  
 
-  constructor() { }
+  constructor( private quoteFormService:QuoteFormService) { }
 
   ngOnInit(): void {
+  }
+
+  addQuote(){
+
   }
 
 }

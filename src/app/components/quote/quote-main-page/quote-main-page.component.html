@@ -1,1 +1,21 @@
-<p>quote-main-page works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Cotizaciones</mat-card-title>
+      <mat-card-subtitle>Gestione sus cotizaciones</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <button mat-raised-button color="primary" (click)="addQuote()">
+                    <mat-icon>note_add</mat-icon>
+                    Nuevo Cotizacion
+                </button>
+            </div>
+            <div fxLayout='column'>
+                <div fxFlex="90%">
+                    <app-quote-table></app-quote-table>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
