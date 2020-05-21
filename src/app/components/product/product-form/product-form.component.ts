@@ -17,6 +17,7 @@ export class ProductFormComponent implements OnInit {
     brand: new FormControl(''),
     technicalDescription: new FormControl(''),
     aditionalDescription: new FormControl(''),
+    price: new FormControl('')
   });
 
   get title():string{

@@ -5,4 +5,5 @@ export interface UpdateProductRequest{
     brand: string;
     technicalDescription: string;
     aditionalDescription: string;
+    price: string;
 }

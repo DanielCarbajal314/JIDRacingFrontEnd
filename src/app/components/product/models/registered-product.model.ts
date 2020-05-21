@@ -5,4 +5,5 @@ export interface RegisteredProduct{
     brand: string;
     technicalDescription: string;
     aditionalDescription: string;
+    price: string;
 }

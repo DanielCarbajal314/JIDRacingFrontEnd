@@ -4,4 +4,5 @@ export interface NewProductRequest{
     brand: string;
     technicalDescription: string;
     aditionalDescription: string;
+    price: string;
 }

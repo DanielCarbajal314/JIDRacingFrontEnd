@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
 })
 export class ProductTableComponent implements OnInit {
   productDataSource:MatTableDataSource<RegisteredProduct>;
-  displayedColumns=["name","model","brand","technicalDescription","aditionalDescription"];
+  displayedColumns=["name","model","brand","technicalDescription","aditionalDescription","price"];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
