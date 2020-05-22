@@ -1,1 +1,71 @@
-<p>quote-form works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Agregar una nueva Cotizacion</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div  fxLayout="column">
+            <mat-form-field>
+                <input placeholder="Cliente" type="text" matInput [formControl]="selectedClientFormControl" [matAutocomplete]="autoName">
+            </mat-form-field>
+            <mat-autocomplete #autoName="matAutocomplete">
+                <mat-option *ngFor="let client of allClients" [value]="clientName(client)">{{client.names}} {{client.lastNames}}</mat-option>
+            </mat-autocomplete>
+            <mat-form-field appearance="fill" class="form-input">
+                <mat-label>Descripcion</mat-label>
+                <input matInput [formControl]="descriptionFormControl">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addProduct()" style="width: 30%; margin: 2em;">
+                <mat-icon>note_add</mat-icon>
+                Añadir Nuevo Producto
+            </button>
+        </div>
+        <table class="mat-table cdk-table top-space">
+            <thead class="mat-header-row">
+                <th class="mat-header-cell"></th>
+                <th class="mat-header-cell">Costo</th>
+                <th class="mat-header-cell"></th>
+                <th class="mat-header-cell"></th>
+                <th class="mat-header-cell">CostoFinal</th>
+                <th class="mat-header-cell">Sub Total</th>
+            </thead>
+            <tbody>
+                <tr class="mat-row" *ngFor="let product of selectedProducts">
+                    <td class="mat-cell">
+                        <mat-form-field>
+                            <input placeholder="Producto" type="text" matInput [matAutocomplete]="auto">
+                        </mat-form-field>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="productName($event.option.id,product)">
+                            <mat-option *ngFor="let productData of allProducts" [value]="productData.name" [id]="productData.id">{{productData.name}}</mat-option>
+                        </mat-autocomplete>
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.registeredProduct ? product.registeredProduct.price : 0 }}
+                    </td>
+                    <td class="mat-cell">
+                        <mat-form-field>
+                            <input placeholder="Cantidad" type="number" [(ngModel)]="product.quantity" matInput (change)="updateProduct(product)">
+                        </mat-form-field>
+                    </td>
+                    <td class="mat-cell">
+                        <mat-form-field>
+                            <input placeholder="Porcentage %" type="number" [(ngModel)]="product.margin" matInput (change)="updateProduct(product)">
+                        </mat-form-field>
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.finalPrice }}
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.subTotal }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <h1>Total {{total}}</h1>
+        </div>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center;">
+        <button mat-raised-button color="primary" (click)="save()" style="margin: 3em;">Guardar Cotizacion</button>
+        <button mat-raised-button (click)="close()" style="margin: 3em;">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

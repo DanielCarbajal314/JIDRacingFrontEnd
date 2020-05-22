@@ -1,1 +1,43 @@
-<p>quote-display works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title> Cotizacion : {{quote.id}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div  fxLayout="column">
+            <h1>Cliente : {{quote.clientName}}</h1>
+            <h2>Descripcion : {{quote.description}}</h2>
+            <h3>Fecha : {{quote.date  | date:'medium'}}</h3>
+        </div>
+        <table class="mat-table cdk-table top-space">
+            <thead class="mat-header-row">
+                <th class="mat-header-cell">Producto</th>
+                <th class="mat-header-cell">Cantidad</th>
+                <th class="mat-header-cell">CostoFinal</th>
+                <th class="mat-header-cell">Sub Total</th>
+            </thead>
+            <tbody>
+                <tr class="mat-row" *ngFor="let product of quote.details">
+                    <td class="mat-cell">
+                        {{ product.productName }}
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.quantity }}
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.finalPrice }}
+                    </td>
+                    <td class="mat-cell">
+                        {{ product.subTotal }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <h1>Total {{quote.total}}</h1>
+        </div>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center;">
+        <button mat-raised-button color="primary" style="margin: 3em;">Generar PDF</button>
+        <button mat-raised-button (click)="close()" style="margin: 3em;">Cerrar</button>
+    </mat-card-actions>
+</mat-card>

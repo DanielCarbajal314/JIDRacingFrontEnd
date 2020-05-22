@@ -33,6 +33,7 @@ export class ProductFormComponent implements OnInit {
       this.productFormGroup.get('name').setValue(this.data.name)
       this.productFormGroup.get('model').setValue(this.data.model)
       this.productFormGroup.get('brand').setValue(this.data.brand)
+      this.productFormGroup.get('price').setValue(this.data.price)
       this.productFormGroup.get('technicalDescription').setValue(this.data.technicalDescription)
       this.productFormGroup.get('aditionalDescription').setValue(this.data.aditionalDescription)
     }

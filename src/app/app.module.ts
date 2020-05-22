@@ -59,7 +59,7 @@ import { ClientFormComponent } from './components/client/client-form/client-form
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientTableComponent } from './components/client/client-table/client-table.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductTableComponent } from './components/product/product-table/product-table.component';
 import { QuoteDisplayComponent } from './components/quote/quote-display/quote-display.component';
 import { QuoteFormComponent } from './components/quote/quote-form/quote-form.component';
@@ -82,6 +82,7 @@ import { QuoteTableComponent } from './components/quote/quote-table/quote-table.
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,

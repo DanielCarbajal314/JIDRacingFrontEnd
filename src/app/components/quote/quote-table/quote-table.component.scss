@@ -1,0 +1,8 @@
+.mat-row:hover {
+    background-color: #483D8B;
+}
+
+.mat-row:hover .mat-cell {
+    color: white !important;
+    font-weight: bold;
+}

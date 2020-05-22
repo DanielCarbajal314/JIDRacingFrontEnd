@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { RegisteredQuote } from '../models/registered-quote.model';
 import { QuoteService } from '../services/quote.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { QuoteFormService } from '../quote-form/service/quote-form.service';
 
 @Component({
   selector: 'app-quote-table',
@@ -14,7 +15,7 @@ export class QuoteTableComponent implements OnInit {
   displayedColumns = ["clientName","date","description","total"];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor( private quoteService: QuoteService) { }
+  constructor( private quoteService: QuoteService,private quoteFormService: QuoteFormService) { }
 
   ngOnInit(): void {
     this.quoteService.getAll().subscribe(quoteArray=>{
@@ -23,7 +24,7 @@ export class QuoteTableComponent implements OnInit {
     });
   }
 
-  public addProduct(quote:RegisteredQuote){
+  public addQuote(quote:RegisteredQuote){
     this.quoteDataSource.data = [ quote, ...this.quoteDataSource.data]
   }
 
@@ -35,8 +36,8 @@ export class QuoteTableComponent implements OnInit {
     }
   }
 
-  show(quote: RegisteredQuote){
-
+  showById(quoteId:number){
+    this.quoteFormService.showById(quoteId);
   }
 
 }
